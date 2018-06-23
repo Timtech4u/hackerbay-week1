@@ -14,8 +14,8 @@ app.get('/', function (req, res) {
 // write the post method
 app.use(bodyParser.urlencoded({ extended: false }));
 app.post('/data', (req, res) => {
-  var result = {'data': req.body}
-  res.send(result)
+  const result = res.body && res.body.text;
+  res.send({data: result})
 });
 
 // start the server
